@@ -1,9 +1,6 @@
 import {
   Box,
   Button,
-  List,
-  ListItem,
-  ListItemText,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
@@ -54,13 +51,14 @@ export default function Todo() {
         flexWrap: "wrap",
         alignContent: "center",
         alignItems: "center",
+        width:"100%"
       }}
     >
-      <Typography variant="h3" color="#ef0e89" sx={{marginTop:"2%"}}>
+      <Typography variant="h3" color="black" sx={{marginTop:"2%", textShadow:"3px 3px 5px  white"}}>
         Student's List
       </Typography>
       {student ? (
-        <TableContainer component={Paper} sx={{ width: "75%", marginTop:"2%" }}>
+        <TableContainer component={Paper} sx={{ width: "65%", marginTop:"2%" }}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
@@ -78,13 +76,13 @@ export default function Todo() {
                   key={id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell align="center">{id+1}</TableCell>
-                  <TableCell component="th" scope="item">
+                  <TableCell align="center"  sx={{textTransform:"capitalize"}} >{id+1}</TableCell>
+                  <TableCell component="th" scope="item" sx={{textTransform:"capitalize"}}>
                     {item.name}
                   </TableCell>
-                  <TableCell align="left">{item.course}</TableCell>
-                  <TableCell align="center">{item.universityName}</TableCell>
-                  <TableCell align="center">
+                  <TableCell align="left" sx={{textTransform:"capitalize"}}>{item.course}</TableCell>
+                  <TableCell align="center" sx={{textTransform:"capitalize"}}>{item.universityName}</TableCell>
+                  <TableCell align="center" sx={{textTransform:"capitalize"}}>
                     <Link to={"/students/" + item?._id}>
                       <Button variant="contained" color= "secondary" size="small">
                         Edit
